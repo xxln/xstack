@@ -34,6 +34,15 @@ For each item write:
 - Source URL
 - One sentence on **why it matters to Xiulin specifically** — connect to his current state (PhD, visa, NZ pathway, business, remote work options)
 
+### Phase 3.5: Pull Personal Context
+Before formatting, gather what's currently on Xiulin's mind:
+1. Use `conversation_search` with 2–3 queries covering different threads (visa/supervisor, business/partnership, relationships/wellbeing, NZ/EU outreach)
+2. Combine with what's in `userMemories` (already in context — don't re-fetch)
+3. Identify the 3–5 threads that have appeared most recently and matter most
+4. For each thread, note: current state, what's pending, what pattern (if any) it reveals
+
+This phase is what makes the briefing feel like it's *for Xiulin* and not a generic news roundup. It must run before Phase 4.
+
 ### Phase 4: Format & Save
 1. Format using the structure in Output Format below
 2. Get today's date in `YYYY-MM-DD` format
@@ -77,18 +86,35 @@ Use this exact HTML structure:
 <h2>4. {Topic Name}</h2>
 <ul>...</ul>
 
+<h2>Where You Are Right Now</h2>
+<p>{2–4 sentence honest synthesis of the threads currently on Xiulin's mind — visa status, supervisor relationship, business decisions, relationships, wellbeing patterns. Pull from conversation_search and userMemories. Name what's pending, what's stuck, and what pattern (if any) is showing up across threads. Do not flatter. Do not therapize.}</p>
+
+<h2>Suggestions for Today</h2>
+<ul>
+  <li><b>{Action}</b> — {1 sentence on why, tied to a specific briefing item or current concern}</li>
+  <li><b>{Action}</b> — {why}</li>
+  <li><b>{Action}</b> — {why}</li>
+</ul>
+<p><i>Suggestions must be concrete and same-day actionable (≤30 minutes each). No "consider exploring" or "you might want to think about." Either say what to do or don't include it.</i></p>
+
 <h2>Today's One Thought</h2>
 <p>{Reflection — honest, not flattering. May use <b>bold</b> for emphasis on the key sentence.}</p>
 ```
 
 ### Formatting rules
-- Use `<h1>` for the title, `<h2>` for each topic and the closing thought — never lower levels
+- Use `<h1>` for the title, `<h2>` for each topic, "Where You Are Right Now," "Suggestions for Today," and the closing thought — never lower levels
 - Headlines are `<b>bold</b>`, "Why it matters" labels are `<i>italic</i>`
 - Links use a clean format: `<a href="full-url">domain.com →</a>` — never paste raw URLs into running text
 - One `<ul>` per topic; one `<li>` per item with `<br>` between summary, relevance, and link
 - If a section has no new items, use a single `<p>` paragraph instead of an empty list — say so honestly ("No new launches today worth flagging")
 - Never use ASCII dividers, never use Markdown (`#`, `**`, `-`), never use blank lines as structure
 - Keep total length scannable on phone — aim for under one screen of scrolling per topic
+
+### Personal context discipline
+- The "Where You Are Right Now" section must reflect *current* threads from recent conversations, not static memory facts. If conversation_search returns nothing new, say "no significant updates since yesterday" rather than recycling old summaries.
+- Suggestions must be actionable today, not abstract. Bad: "reflect on your priorities." Good: "open the CCNY application page and read the requirements (15 min)."
+- Never pretend to be a therapist. If a wellbeing pattern surfaces (avoidance, withdrawal, rumination), name it briefly and once — don't dwell, don't diagnose, don't repeat what's already been said in past conversations.
+- If something serious comes up in conversation_search (escalating distress, isolation, crisis language), the suggestion section should include reaching out to a professional or trusted person — directly, not euphemistically.
 
 ## Setup (First Run)
 If `Daily Briefing Topics` note doesn't exist, create it with this default content:
@@ -146,7 +172,7 @@ This skill compounds with:
 **Created**: 2026-04-10
 **Last Updated**: 2026-04-10
 **Author**: Xiulin (with Claude)
-**Version**: 1.1 — switched output format from ASCII dividers to HTML (Apple Notes renders HTML; ASCII collapses)
+**Version**: 1.2 — added Phase 3.5 (pull personal context from conversation_search + memory) and two new output sections: "Where You Are Right Now" and "Suggestions for Today"
 
 ---
 See framework.md for detailed methodology
