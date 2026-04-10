@@ -42,36 +42,53 @@ For each item write:
 
 ## Output Format
 
+**Critical: Apple Notes renders HTML.** Plain-text dividers (═══, ---) and blank lines collapse into running text and look terrible on phone. ALWAYS use HTML tags. Never use ASCII art for structure.
+
+Use this exact HTML structure:
+
+```html
+<h1>Daily Briefing — {D Month YYYY}</h1>
+<p><i>{One-line framing of the day, optional}</i></p>
+
+<h2>1. {Topic Name}</h2>
+<ul>
+  <li><b>{Headline}</b><br>
+  {1–2 sentence summary}<br>
+  <i>Why it matters:</i> {personal relevance, 1 sentence}<br>
+  <a href="{URL}">{domain} →</a></li>
+
+  <li><b>{Headline}</b><br>
+  {summary}<br>
+  <i>Why it matters:</i> {relevance}<br>
+  <a href="{URL}">{domain} →</a></li>
+
+  <li><b>{Headline}</b><br>
+  {summary}<br>
+  <i>Why it matters:</i> {relevance}<br>
+  <a href="{URL}">{domain} →</a></li>
+</ul>
+
+<h2>2. {Topic Name}</h2>
+<ul>...</ul>
+
+<h2>3. {Topic Name}</h2>
+<ul>...</ul>
+
+<h2>4. {Topic Name}</h2>
+<ul>...</ul>
+
+<h2>Today's One Thought</h2>
+<p>{Reflection — honest, not flattering. May use <b>bold</b> for emphasis on the key sentence.}</p>
 ```
-{YYYY-MM-DD} — DAILY BRIEFING (Xiulin)
 
-═══════════════════════════════════
-1. {TOPIC NAME}
-═══════════════════════════════════
-
-• {Headline}
-  Why it matters: {personal relevance in 1 sentence}
-  {URL}
-
-• {Headline}
-  Why it matters: {personal relevance}
-  {URL}
-
-• {Headline}
-  Why it matters: {personal relevance}
-  {URL}
-
-═══════════════════════════════════
-2. {TOPIC NAME}
-═══════════════════════════════════
-[... same structure ...]
-
-═══════════════════════════════════
-TODAY'S ONE THOUGHT
-═══════════════════════════════════
-{One short reflective observation connecting today's findings
-to Xiulin's current decisions or patterns. Honest, not flattering.}
-```
+### Formatting rules
+- Use `<h1>` for the title, `<h2>` for each topic and the closing thought — never lower levels
+- Headlines are `<b>bold</b>`, "Why it matters" labels are `<i>italic</i>`
+- Links use a clean format: `<a href="full-url">domain.com →</a>` — never paste raw URLs into running text
+- One `<ul>` per topic; one `<li>` per item with `<br>` between summary, relevance, and link
+- If a section has no new items, use a single `<p>` paragraph instead of an empty list — say so honestly ("No new launches today worth flagging")
+- Never use ASCII dividers, never use Markdown (`#`, `**`, `-`), never use blank lines as structure
+- Keep total length scannable on phone — aim for under one screen of scrolling per topic
 
 ## Setup (First Run)
 If `Daily Briefing Topics` note doesn't exist, create it with this default content:
@@ -129,7 +146,7 @@ This skill compounds with:
 **Created**: 2026-04-10
 **Last Updated**: 2026-04-10
 **Author**: Xiulin (with Claude)
-**Version**: 1.0
+**Version**: 1.1 — switched output format from ASCII dividers to HTML (Apple Notes renders HTML; ASCII collapses)
 
 ---
 See framework.md for detailed methodology
